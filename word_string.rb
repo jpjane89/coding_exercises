@@ -1,5 +1,7 @@
 def can_we_find_words(string)
-	if is_word(string)
+	if string == ""
+		return false
+	elsif is_word(string)
 		return true
 	else
 		combos = create_permutations(string)
@@ -24,8 +26,8 @@ def create_permutations(string)
 			combo = [string[0..i].join("")] + [string[i+1..string.length-1].join("")]
 			permutations.push(combo)
 		end
-	end
 	return permutations
+	end
 end
 
 # we assume `is_word` is a function that returns true or false based on whether the 
