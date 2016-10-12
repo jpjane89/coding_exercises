@@ -14,9 +14,16 @@ end
 
 def create_permutations(string)
 	permutations = []
-	(0..string.length-2).each do |i|
-		combo = [string[0..i].join("")] + [string[i+1..string.length-1].join("")]
-		permutations.push(combo)
+
+	if string.length == 1
+		return string
+	elsif string.length == 2
+		return [string[0], string[1]]
+	else
+		(0..string.length-2).each do |i|
+			combo = [string[0..i].join("")] + [string[i+1..string.length-1].join("")]
+			permutations.push(combo)
+		end
 	end
 	return permutations
 end
